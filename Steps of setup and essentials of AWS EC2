@@ -1,0 +1,146 @@
+                                                                      THE SPARKS FOUNDATION - GRIP                  
+
+                                                                   DOMAIN- WEB & MOBILE DEVELOPMENT TASKS                                                                      
+                                                                      TASK 4- CI/CD: CLOUD COMPUTING   
+
+
+Author- Navjyot Kumar
+
+
+➢ STEPS OF SETUP AND ESSENTIALS OF AWS EC2
+
+1.	Open AWS Management Console https://aws.amazon.com/console/
+2.	Log in to the console using your email and password.
+3.	Then, for launching a VM, go to EC2 under Compute.
+       
+ Q.  What is a VM?
+A Virtual Machine (VM) is a compute  resource that uses software instead of a physical computer to run programs and deploy apps. It is software that runs programs or applications without being tied to a physical machine.
+           
+ Q. What is Compute?
+The Compute category of services are key resources that allow you to carry out computational abilities via a series of
+instructions used by applications and systems.
+ 
+ Q. What is EC2?
+Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in  the cloud. It provides capability to launch a VM on the cloud.
+ 
+4. Click on Create new Instance.
+ 
+Q. What is EC2 instance?
+An EC2 instance is a virtual server in Amazon's Elastic Compute Cloud for running applications on the Amazon Web
+Services infrastructure.
+ 
+5.	Now, we need to select AMI.
+ 
+  Q. What is AMI?
+ An Amazon Machine Image is a special type of virtual appliance that is used to create a virtual machine within the 
+Amazon Elastic Compute Cloud. It serves as the basic unit of deployment for services delivered using EC2. It serves as a template.
+ 
+6.	Now, we need to Choose an Instance Type. (basic specifications like number of CPU)
+7.	Next, we have to Configure Instance Details. (details like Number of Instances, region, subnet, etc.)
+8.	Next, we have to Add Storage.
+9.	Next, Add Tags. (optional)
+10.	Next, Add Security Group. (here we include the firewall rules for access to our instance and traffic)
+11.	Finally, Review And Launch.
+12.	It asks for a key-pair. (Note: It's necessary to have the key pair downloaded in the system before launching the instance so that we can connect to the instance via SSH.)
+ 
+
+ 
+ Q. What is key-pair?
+
+A key-pair, consisting of a private key and a public key, is a set of security credentials that you use to prove your identity when connecting to an instance.
+ 
+  Q. What is SSH?
+SSH or Secure Shell is a network communication protocol that enables two computers to communicate and share data.
+                
+
+Let's connect to our Instance via putty.
+ 
+ Q. What is Putty?
+PuTTy is a software terminal emulator for Windows and Linux. It is an open source application that supports multiple network protocols, such as - SSH, Telnet, SCP, rlogin, and serial port.
+ 
+13.	For this, we need Public IP of our instance and key pair we downloaded earlier in .ppk format. (it is originally in .pem format.)
+ 
+Now, let's run a simple application on this instance. For this task, I have created a Corona Fund Raiser ,a static website, using HTML, CSS and JavaScript and hosted on GitHub.
+ 
+14.	Inside Instance terminal, commands to be run are:
+•	sudo su : It provides root access
+•	yum update : It ensures that everything is up to date.
+•	yum install httpd : It installs apache webserver on our instance.
+
+  Q. What is Apache?
+ The Apache HTTP Server, commonly called Apache, is a free, widely-used and open-source cross-platform web server software. It mainly contains two folder parts: /var/www/html and /var/www/cgi-bin. The static files are kept in html folder while cgi-bin folder is for dynamic scripts.
+ 
+•	yum install git : It installs git in our VM. 
+•	git clone "https://www.github.com/<account>/<repository>.git" : It clones the repository from GitHub to our system.
+•	mv /home/ec2-user/Corona-Fund-Raiser/index.html /var/www/html : It moves index.html file to apache's html folder.
+•	mv /home/ec2-user/Corona-Fund-Raiser/styles.css /var/www/html : It moves styles.css file to apache's html folder.
+•	httpd -k start : It starts the apache webserver.
+ 
+Now, let's check whether the application is hosted correctly over internet or not.
+ 
+15.	On browser, type http://<public_ip_of_instance> 
+If everything is correct, then website shows up. 
+
+
+
+
+➢ WHAT IS AMAZON SNS?
+
+AMAZON SIMPLE NOTIFICATION SERVICE (AMAZON SNS) IS A MANAGED SERVICE THAT PROVIDES MESSAGE DELIVERY FROM PUBLISHERS TO SUBSCRIBERS (ALSO KNOWN AS PRODUCERS AND CONSUMERS). 
+PUBLISHERS COMMUNICATE ASYNCHRONOUSLY WITH SUBSCRIBERS BY SENDING MESSAGES TO A TOPIC, WHICH IS A LOGICAL ACCESS POINT AND COMMUNICATION CHANNEL. CLIENTS CAN SUBSCRIBE TO THE SNS TOPIC AND RECEIVE PUBLISHED MESSAGES USING A SUPPORTED ENDPOINT TYPE, SUCH AS AMAZON KINESIS DATA FIREHOSE, AMAZON SQS, AWS LAMBDA, HTTP, EMAIL, MOBILE PUSH NOTIFICATIONS, AND MOBILE TEXT MESSAGES (SMS).
+
+
+➢ SETTING UP AN AMAZON SNS TOPIC USING THE AWS MANAGEMENT CONSOLE
+
+First, create a topic, then subscribe to it. You can optionally publish a test message to the topic.
+ 
+To create an SNS topic
+
+1.	Open the Amazon SNS console at https://console.aws.amazon.com/sns/v3/home.
+
+2.	On the Amazon SNS dashboard, under Common actions, choose Create Topic.
+
+3.	In the Create new topic dialog box, for Topic name, enter a name for the topic (for example, my-topic).
+
+4.	Choose Create topic.
+
+5.	Copy the Topic ARN for the next task (for example, arn:aws:sns:us-east-1:111122223333:my-topic).
+
+To subscribe to an SNS topic
+
+1.	Open the Amazon SNS console at https://console.aws.amazon.com/sns/v3/home.
+
+2.	In the navigation pane, choose Subscriptions, Create subscription.
+
+3.	In the Create subscription dialog box, for Topic ARN, paste the topic ARN that you created in the previous task.
+
+4.	For Protocol, choose Email.
+
+5.	For Endpoint, enter an email address that you can use to receive the notification, and then choose Create subscription.
+
+6.	From your email application, open the message from AWS Notifications and confirm your subscription.
+7.	Your web browser displays a confirmation response from Amazon SNS.
+
+
+To publish a test message to an SNS topic
+
+1.	Open the Amazon SNS console at https://console.aws.amazon.com/sns/v3/home.
+
+2.	In the navigation pane, choose Topics.
+
+3.	On the Topics page, select a topic and choose Publish to topic.
+
+4.	In the Publish a message page, for Subject, enter a subject line for your message, and for Message, enter a brief message.
+
+5.	Choose Publish Message.
+
+6.	Check your email to confirm that you received the message.
+
+ 
+                                                                                  
+																				  THANK YOU!!
+					
+
+
+
+
